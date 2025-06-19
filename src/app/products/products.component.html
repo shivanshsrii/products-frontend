@@ -1,0 +1,19 @@
+<h3>Add New Product</h3>
+<form (ngSubmit)="addProduct()">
+  <input type="text" placeholder="Name" [(ngModel)]="newProduct.name" name="name" required>
+  <input type="number" placeholder="Price" [(ngModel)]="newProduct.price" name="price" required>
+  <input type="file" (change)="onFileSelected($event)">
+  <button type="submit">Add Product</button>
+</form>
+<h2>Product List</h2>
+<ul>
+  <li *ngFor="let product of products">
+    <img *ngIf="product.imageUrl" 
+     [src]="'https://productsmock-1.onrender.com/' + product.imageUrl" 
+     alt="Product Image" />
+    <div>{{ product.name }} - ₹{{ product.price }}</div>
+    <button (click)="deleteProduct(product.id!)">Delete</button>
+  </li>
+</ul>
+
+
