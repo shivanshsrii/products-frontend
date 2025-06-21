@@ -9,11 +9,13 @@
 <ul>
   <li *ngFor="let product of products">
     <img *ngIf="product.imageUrl" 
-     [src]="'https://productsmock-1.onrender.com/' + product.imageUrl" 
-     alt="Product Image" />
+         [src]="product.imageUrl" 
+         alt="Product Image" width="200" />
+         
     <div>{{ product.name }} - ₹{{ product.price }}</div>
     <button (click)="deleteProduct(product.id!)">Delete</button>
   </li>
 </ul>
+
 
 
