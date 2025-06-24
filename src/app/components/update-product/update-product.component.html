@@ -1,0 +1,17 @@
+<div class="update-container">
+  <h2>Update Product</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <input formControlName="name" type="text" placeholder="Product Name" required>
+    <input formControlName="price" type="number" placeholder="Price" required>
+    <textarea formControlName="description" placeholder="Description"></textarea>
+
+    <input type="file" (change)="onImageSelected($event)" accept="image/*">
+
+    <div *ngIf="imagePreviewUrl" class="preview">
+      <img [src]="imagePreviewUrl" alt="Image Preview">
+    </div>
+
+    <button type="submit" [disabled]="productForm.invalid">Update Product</button>
+  </form>
+</div>

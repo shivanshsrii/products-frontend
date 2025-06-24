@@ -1,0 +1,15 @@
+<div class="product-list-container">
+  <h2>Available Products</h2>
+
+  <div *ngFor="let product of products" class="product-card">
+    <img [src]="product.imageUrl" alt="Product Image" class="product-img">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p><strong>₹{{ product.price }}</strong></p>
+    
+    <div class="actions">
+      <button (click)="goToUpdate(product.id!)">Edit</button>
+      <button (click)="deleteProduct(product.id!)">Delete</button>
+    </div>
+  </div>
+</div>
