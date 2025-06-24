@@ -1,0 +1,19 @@
+<div class="add-product-container">
+  <h2>Add Product</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="Product Name" required>
+
+    <input type="number" formControlName="price" placeholder="Price" required>
+
+    <textarea formControlName="description" placeholder="Description"></textarea>
+
+    <input type="file" (change)="onImageSelected($event)" accept="image/*">
+
+    <div *ngIf="imagePreviewUrl" class="preview">
+      <img [src]="imagePreviewUrl" alt="Preview">
+    </div>
+
+    <button type="submit">Add Product</button>
+  </form>
+</div>
